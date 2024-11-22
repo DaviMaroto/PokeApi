@@ -2,10 +2,11 @@ import React from 'react'
 import Navbar from "../components/Navbar/Navbar"
 import axios from "axios"
 import { Grid } from "@mui/material"
-import {Box, Container}  from '@mui/system'
+import { Container}  from '@mui/system'
 import { useEffect, useState } from "react";
 import PokemonCard from "../components/PokemonCard/Card"
 import { Skeletons } from "../components/Skeletons";
+import Footer from '../components/Footer/Footer'
 
 
 export const Home = ({ setPokemonData }) => {
@@ -21,21 +22,23 @@ export const Home = ({ setPokemonData }) => {
     for (var i = 1; i < 25; i++) {
       getEndpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
     }
-    axios.all(getEndpoints.map((endpoint) => axios.get(endpoint))).then((res) => setPokemons(res));
+    axios.all(getEndpoints.map((endpoint) => axios.get(endpoint)))
+    .then((res) => setPokemons(res))
+    .catch((err)=> console.log(err))
   };
 
   const pokemonFilter = (name) => {
     var filteredPokemons = [];
     if (name === "") {
-      getPokemons();
+      getPokemons()
     }
     for (var i in pokemons) {
       if (pokemons[i].data.name.includes(name)) {
-        filteredPokemons.push(pokemons[i]);
+        filteredPokemons.push(pokemons[i])
       }
     }
 
-    setPokemons(filteredPokemons);
+    setPokemons(filteredPokemons)
   };
 
   return (
@@ -56,6 +59,7 @@ export const Home = ({ setPokemonData }) => {
           )}
         </Grid>
       </Container>
+      <Footer/>
     </div>
   );
 };
