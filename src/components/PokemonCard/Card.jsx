@@ -32,21 +32,13 @@ export default function PokemonCard({ name, image, types }) {
           <Typography gutterBottom variant="h5" component="div">
            {name}
           </Typography>
-          <Typography gutterBottom variant="caption" component="div">
+          <Typography gutterBottom variant="caption"  fontWeight="600" component="div">
            {typePokemon()}
           </Typography>
           </Box>
-          {/* <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography> */}
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        {/* <Button size="small" color="primary">
-          Share
-        </Button> */}
-      </CardActions>
+      
     </Card>
   );
 }

@@ -3,10 +3,7 @@ import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 
 const Search = styled('div')(({ theme }) => ({
@@ -52,10 +49,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Navbar({ pokemonFilter, hideSearch }) {
-  // const navigate = useNavigate();
   return (
     <Box sx={{ flexGrow: 1, marginBottom: "2em" }}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{ backgroundColor:"#3770B6"}}>
         <Toolbar>
           <Box display="flex" justifyContent="space-between" width="100%">
             <Box component="img" src="/assets/images/logo-pokemon.png" height="3em" />
